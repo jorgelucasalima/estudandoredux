@@ -17,6 +17,6 @@ export function updateAmountReserve(id, amount) {
   return {
     type: 'UPDATE_RESERVE',
     id,
-    amount
+    amount,
   }
 }

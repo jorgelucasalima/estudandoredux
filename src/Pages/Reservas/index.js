@@ -20,8 +20,6 @@ export default function Reservas() {
     
   }
 
-
-
   function decrementAmount(trip) {
     dispatch(updateAmountReserve(trip.id, trip.amount - 1))
   }
@@ -48,7 +46,7 @@ export default function Reservas() {
               <FaMinus size={20} color="#250f0d" />
             </button>
             <input type="text" readOnly value={reserve.amount} />
-            <button type="button" onClick={()=> incrementAmount()}>
+            <button type="button" onClick={() => incrementAmount()}>
               <FaPlus size={20} color="#250f0d" />
             </button>
 

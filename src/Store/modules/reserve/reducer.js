@@ -6,7 +6,7 @@ export default function reserve(state = [], action ) {
     case 'ADD_RESERVE':
       return produce(state, draft => {
 
-        const tripIndex = draft.findIndex(trip => trip.id === action.trip.id )
+        const tripIndex = draft.findIndex(trip => trip.id === action.id )
 
         if (tripIndex >= 0) {
           draft[tripIndex].amount += 1
@@ -30,7 +30,13 @@ export default function reserve(state = [], action ) {
         
         })
 
-      case 'UPDATE_RESERVE':
+      case 'UPDATE_RESERVE': {
+
+        if(action.amount <= 0){
+          return state
+        }
+
+
         return produce(state, draft => {
           const tripIndex = draft.findIndex(trip => trip.id === action.id )
           
@@ -40,6 +46,7 @@ export default function reserve(state = [], action ) {
         
         })
 
+      }
 
 
     default:
