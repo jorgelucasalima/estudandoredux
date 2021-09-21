@@ -13,13 +13,25 @@ export default function reserve(state = [], action ) {
         }else{
           draft.push({
             ...action.trip,
-            amount:1
+            amount:1,
           })
         }
 
-
-        draft.push(action.trip)
       })
+
+      case 'REMOVE_RESERVE':
+        return produce(state, draft => {
+          const tripIndex = draft.findIndex(trip => trip.id === action.id )
+        
+          if (tripIndex >= 0) {
+            draft.splice(tripIndex, 1)
+          }
+        
+        
+        })
+
+
+
     default:
       return state
   }
