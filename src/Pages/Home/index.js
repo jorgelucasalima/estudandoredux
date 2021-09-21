@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch } from 'react-redux';
 import api from '../../services/api';
-import { addReserve } from '../../Store/modules/reserve/actions'
+import { addReserveRequest } from '../../Store/modules/reserve/actions'
 import {FaPlane} from 'react-icons/fa'
 import './style.css'
 
@@ -31,8 +31,8 @@ export default function Home() {
 
   //funções
 
-  function handleAdd(trip) {
-    dispatch(addReserve(trip))
+  function handleAdd(id) {
+    dispatch(addReserveRequest(id))
   }
 
  
@@ -47,7 +47,7 @@ export default function Home() {
 
               <button
                 type="button"
-                onClick={() => handleAdd(trip) }
+                onClick={() => handleAdd(trip.id) }
               >
                 <div>
                   <FaPlane size={16} color="#FFF"/>
