@@ -1,10 +1,15 @@
 import React, {useState, useEffect} from 'react';
+import { useDispatch } from 'react-redux';
 import api from '../../services/api';
 import {FaPlane} from 'react-icons/fa'
 import './style.css'
 
+
+
+
 export default function Home() {
  
+  const dispatch = useDispatch()
   const [trips, setTrips] = useState([]);
  
   useEffect(() => {
@@ -21,6 +26,17 @@ export default function Home() {
     
 
   }, []);
+
+
+  //funções
+
+  function handleAdd(trip) {
+    dispatch({
+      type: 'ADD_RESERVE',
+      trip
+    })
+  }
+
  
   return (
    <div>
@@ -33,7 +49,7 @@ export default function Home() {
 
               <button
                 type="button"
-                onClick={()=>{}}
+                onClick={() => handleAdd(trip) }
               >
                 <div>
                   <FaPlane size={16} color="#FFF"/>
