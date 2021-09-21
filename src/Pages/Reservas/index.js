@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { removeReserve } from '../../Store/modules/reserve/actions'
 import {FaTrash} from 'react-icons/fa'
 import './style.css'
 
@@ -14,10 +15,7 @@ export default function Reservas() {
 
 
   function handleRemove(id) {
-    dispatch({
-      type: 'REMOVE_RESERVE',
-      id,
-    })
+    dispatch(removeReserve(id))
     
   }
 

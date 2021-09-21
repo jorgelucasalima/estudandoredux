@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch } from 'react-redux';
 import api from '../../services/api';
+import { addReserve } from '../../Store/modules/reserve/actions'
 import {FaPlane} from 'react-icons/fa'
 import './style.css'
 
@@ -31,10 +32,7 @@ export default function Home() {
   //funções
 
   function handleAdd(trip) {
-    dispatch({
-      type: 'ADD_RESERVE',
-      trip
-    })
+    dispatch(addReserve(trip))
   }
 
  
